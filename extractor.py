@@ -11,9 +11,10 @@ if __name__ == '__main__':
         if re.fullmatch(r'8\d\d\d.docx', file.name) is not None:
             print("found file", file)
             text = docx2txt.process(file)
-            for email in re.findall(r'\w+@\w+\.\w+\.*\w*', text):
+            for email in re.findall(r'\w+@\w+\.\w+\.?\w*', text):
                 if email not in excluded:
                     emails.add(email)
+
 
     print(emails)
 
