@@ -62,3 +62,5 @@ target/
 docx-email-extractor\.iml
 
 docs/
+
+emails\.csv
