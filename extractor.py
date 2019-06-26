@@ -15,7 +15,6 @@ if __name__ == '__main__':
                 if email not in excluded:
                     emails.add(email)
 
-
     print(emails)
 
     with open('emails.csv', 'w', newline='') as csv_file:
