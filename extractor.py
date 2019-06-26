@@ -7,11 +7,13 @@ import docx2txt
 if __name__ == '__main__':
     excluded = []
     emails = set()
-    for filename in Path('docs').glob('**/*.docx'):
-        text = docx2txt.process(filename)
-        for email in re.findall(r'\w+@\w+\.\w+\.*\w*', text):
-            if email not in excluded:
-                emails.add(email)
+    for file in Path('docs').glob('**/*.docx'):
+        if re.fullmatch(r'8\d\d\d.docx', file.name) is not None:
+            print("found file", file)
+            text = docx2txt.process(file)
+            for email in re.findall(r'\w+@\w+\.\w+\.*\w*', text):
+                if email not in excluded:
+                    emails.add(email)
 
     print(emails)
 
